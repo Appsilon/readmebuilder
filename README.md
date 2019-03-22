@@ -1,7 +1,26 @@
+ReadmebuildeR
+=============
 
-R Markdown
-----------
+A simple R package to automatically build consistently formated and nicely looking READMEs and simple package websites.
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+# Installation
 
-![](README_files/figure-markdown_github/unnamed-chunk-1-1.png)
+```
+devtools::install_github("Appsilon/readmebuilder")
+```
+
+# How to use it?
+
+Run:
+
+```r
+build_readme("examples/README.Rmd", output_md = 'README2.md')
+```
+
+and check `examples/README.Rmd` for 
+
+# Credits
+
+[Appsilon Data Science Team](http://appsilon.com).
+
+Get in touch [dev@appsilon.com](dev@appsilon.com)
