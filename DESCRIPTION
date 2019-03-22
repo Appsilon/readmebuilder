@@ -1,12 +1,14 @@
 Package: readmebuilder
 Title: What the Package Does (one line, title case)
-Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Version: 0.0.1
+Authors@R: person("Dominik", "Krzemiński", email = "dominik@appsilon.com", role = c("aut", "cre"))
+Description: This packge build nicely formated README and simple package websites from Rmd files.
 Depends: R (>= 3.5.1)
-License: What license is it under?
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports: rmarkdown,
          styler,
-         webshot
+         webshot,
+         utils
+RoxygenNote: 6.1.1

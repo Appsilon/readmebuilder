@@ -22,34 +22,38 @@ create_tempfile <- function(output, type, readme_rmd) {
 
 #' Build Readme
 #'
-#' Based
+#' Builds md and html output out of Rmd file.
 #'
-#' @param readme_rmd character with path to valid Rmd file. If null default path of
-#' 'README.
+#' @param readme_rmd character with path to valid Rmd file. If NULL, a default path
+#' is given: 'README.md'.
 #' @param output_md character with path of output README md file. Default: 'README.md'
 #' @param output_html character with path of output html website. If NULL
 #' not html is geneated.
-#' @param show_html
+#' @param show_html flag (TRUE/FALSE) responsible for showing output html readme.
 #'
-#' @return
 #' @export
 #'
 #' @examples
+#' build_readme()
 build_readme <- function(readme_rmd = NULL, output_md = 'README.md',
-                         output_html = "docs/index.html", show_html = TRUE) {
+                         output_html = "index.html", show_html = TRUE) {
   if (is.null(readme_rmd))
     readme_rmd <- "README.Rmd"
+  else {
+    if (tools::file_ext(readme_rmd) != "Rmd")
+      stop("readme_rmd parameter doesn't have Rmd extension.")
+  }
 
   create_tempfile(TEMP_FILE, 'text', readme_rmd)
-  rmarkdown::render(TEMP_FILE, output_format = "github_document", output_file = 'README.md')
+  rmarkdown::render(TEMP_FILE, output_format = "github_document", output_file = output_md)
   file.remove(TEMP_FILE)
 
   if (!is.null(output_html)) {
     create_tempfile(TEMP_FILE, 'web', readme_rmd)
-    rmarkdown::render(TEMP_FILE, output_format = "html_document", output_file = "docs/index.html")
+    rmarkdown::render(TEMP_FILE, output_format = "html_document", output_file = output_html)
     file.remove(TEMP_FILE)
-    file.remove("README.html")
+    file.remove(paste0(tools::file_path_sans_ext(output_md), ".html"))
   }
   if (show_html == TRUE)
-    browseURL("docs/index.html")
+    browseURL(output_html)
 }
