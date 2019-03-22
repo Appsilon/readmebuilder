@@ -17,7 +17,6 @@ suppressWarnings(library(shiny))
 suppressWarnings(library(shiny.semantic))
 ```
 
-<link href='style.css' rel='stylesheet' type='text/css'>
 
 # `r params$package_name`
 
