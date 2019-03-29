@@ -3,7 +3,7 @@ Title: What the Package Does (one line, title case)
 Version: 0.0.1
 Authors@R: person("Dominik", "Krzemiński", email = "dominik@appsilon.com", role = c("aut", "cre"))
 Description: This packge build nicely formated README and simple package websites from Rmd files.
-Depends: R (>= 3.5.1)
+Depends: R (>= 3.4)
 License: MIT
 Encoding: UTF-8
 LazyData: true
